@@ -1,0 +1,38 @@
+.container {
+  border: 2px solid blue;
+  width: 1440px;
+  height: auto;
+}
+.title {
+  border: 1px solid magenta;
+  padding: 2rem;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 1024px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 425px;
+  }
+  .title {
+    visibility: hidden;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    width: 375px;
+  }
+}
+@media (max-width: 320px) {
+  .container {
+    width: 320px;
+  }
+}
