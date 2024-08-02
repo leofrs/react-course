@@ -1,6 +1,6 @@
 .container {
   border: 2px solid blue;
-  width: 1440px;
+  max-width: 1440px;
   height: auto;
 }
 .title {
@@ -10,17 +10,17 @@
 }
 @media (max-width: 1024px) {
   .container {
-    width: 1024px;
+    max-width: 1024px;
   }
 }
 @media (max-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
 }
 @media (max-width: 425px) {
   .container {
-    width: 425px;
+    max-width: 425px;
   }
   .title {
     visibility: hidden;
@@ -28,11 +28,11 @@
 }
 @media (max-width: 375px) {
   .container {
-    width: 375px;
+    max-width: 375px;
   }
 }
 @media (max-width: 320px) {
   .container {
-    width: 320px;
+    max-width: 320px;
   }
 }
