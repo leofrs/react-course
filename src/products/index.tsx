@@ -22,7 +22,7 @@ export default function Products() {
       <h1>Página de produtos</h1>
       <ul>
         {dataFake.map((product) => (
-          <li>
+          <li key={product.id}>
             <ProductsList
               nome={product.nome}
               detalhes={product.datalhes}

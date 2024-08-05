@@ -1,34 +1,36 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
+
+import UseReducerProducts, {
+  //CounterAction,
+  CounterState,
+} from "../../hooks/use-reducer-products";
 
 type CustomCardProps = {
   children: React.ReactNode;
 };
 
-interface IProductContext {
-  initial: number;
-  setInitial: React.Dispatch<React.SetStateAction<number>>;
-  handleButtonAdc: () => void;
-  handleButtonDecre: () => void;
-}
-export const ProductContext = createContext<IProductContext>({
-  initial: 0,
-  setInitial: () => {},
+const initialState: CounterState = {
+  count: 0,
+};
+
+export const ProductContext = createContext<{
+  state: CounterState;
+  //dispatch: React.Dispatch<CounterAction>;
+  handleButtonAdc: (id: number) => void;
+  handleButtonDecre: (id: number) => void;
+}>({
+  state: initialState,
+  //dispatch: () => undefined,
   handleButtonAdc: () => {},
   handleButtonDecre: () => {},
-} as IProductContext);
+});
 
 export default function ProductState({ children }: CustomCardProps) {
-  const [initial, setInitial] = useState<number>(0);
-  const handleButtonAdc = () => {
-    setInitial(initial + 1);
-  };
-  const handleButtonDecre = () => {
-    if (initial !== 0) setInitial(initial - 1);
-  };
+  const { state, handleButtonAdc, handleButtonDecre } = UseReducerProducts();
 
   return (
     <ProductContext.Provider
-      value={{ initial, setInitial, handleButtonAdc, handleButtonDecre }}
+      value={{ state, handleButtonAdc, handleButtonDecre }}
     >
       {children}
     </ProductContext.Provider>
